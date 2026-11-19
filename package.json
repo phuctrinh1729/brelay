@@ -1,0 +1,23 @@
+{
+  "name": "brelay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "phuctd <phuctrinh1729@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@4.5.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build:shared": "yarn workspace @app/shared build",
+    "dev:shared": "yarn workspace @app/shared dev",
+    "dev:db": "docker compose up -d db",
+    "dev:api": "yarn build:shared && yarn workspace @app/api start:dev",
+    "dev:web": "yarn build:shared && yarn workspace @app/web dev",
+    "dev:mobile": "yarn workspace @app/mobile start",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down"
+  }
+}
