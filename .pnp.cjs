@@ -13,11 +13,16 @@ const RAW_RUNTIME_STATE =
     {\
       "name": "brelay",\
       "reference": "workspace:."\
+    },\
+    {\
+      "name": "@app/shared",\
+      "reference": "workspace:packages/shared"\
     }\
   ],\
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
+    ["@app/shared", ["workspace:packages/shared"]],\
     ["brelay", ["workspace:."]]\
   ],\
   "fallbackPool": [\
@@ -31,6 +36,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "SOFT"\
       }]\
     ]],\
+    ["@app/shared", [\
+      ["workspace:packages/shared", {\
+        "packageLocation": "./packages/shared/",\
+        "packageDependencies": [\
+          ["@app/shared", "workspace:packages/shared"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=8c6c40"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["brelay", [\
       ["workspace:.", {\
         "packageLocation": "./",\
@@ -38,6 +53,15 @@ const RAW_RUNTIME_STATE =
           ["brelay", "workspace:."]\
         ],\
         "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["typescript", [\
+      ["patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=8c6c40", {\
+        "packageLocation": "../../.yarn/berry/cache/typescript-patch-51b3aa13c9-10c0.zip/node_modules/typescript/",\
+        "packageDependencies": [\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=8c6c40"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]]\
   ]\
